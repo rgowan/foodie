@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BackButton = ({ history }) => {
+const BackButton = ({history}) => {
   return (
     <div>
       <button
