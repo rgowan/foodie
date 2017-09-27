@@ -11,7 +11,7 @@ const HtmlWebpack = new HtmlWebpackPlugin({
 const HotModuleReplcement = new webpack.HotModuleReplacementPlugin();
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/app.js',
   output: {
     path: path.resolve('public'),
     filename: 'app.js'

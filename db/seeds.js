@@ -36,9 +36,9 @@ mongoose.connection.once('open', () => {
       category: 'Breakfast'
     },
     {
-      title: 'Glazed doughnut holes',
-      image: 'https://scontent-lht6-1.cdninstagram.com/t51.2885-15/sh0.08/e35/p640x640/11934601_1648565082085926_965455680_n.jpg',
-      category: 'Desert'
+      title: 'Classic Fish & Chips',
+      image: 'https://gustoprontoltd.co.uk/thecadogan/wp-content/uploads/sites/4/2016/10/Fish-2-640x640.png',
+      category: 'Dinner'
     }
   ];
 
