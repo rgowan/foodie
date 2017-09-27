@@ -17,16 +17,14 @@ class FoodsIndex extends React.Component {
   render() {
     return (
       <div>
-        <div className="columns is-0 is-multiline is-mobile">
+        <div className="row">
           {this.state.foods.map(food => {
             return(
-              <Link key={food._id} to={`/${food._id}`}>
-                <div className="column">
-                  <figure className="image">
-                    <img src={food.image}/>
-                  </figure>
-                </div>
-              </Link>
+              <div key={food._id} className="tile col-md-4">
+                <Link to={`/${food._id}`}>
+                  <img src={food.image} width="100%"/>
+                </Link>
+              </div>
             );
           })}
         </div>
