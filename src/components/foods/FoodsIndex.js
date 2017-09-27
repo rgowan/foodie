@@ -20,9 +20,9 @@ class FoodsIndex extends React.Component {
         <div className="row">
           {this.state.foods.map(food => {
             return(
-              <div key={food._id} className="tile col-md-4">
+              <div key={food._id} className="tile col-md-4 col-sm-6 col-xs-12">
                 <Link to={`/${food._id}`}>
-                  <img src={food.image} width="100%"/>
+                  <img src={food.image} className="img-responsive" />
                 </Link>
               </div>
             );

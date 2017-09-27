@@ -10,7 +10,6 @@ body {
 
 header {
   height: 230px;
-  margin-bottom: 20px;
 }
 
 h1 {
@@ -56,6 +55,7 @@ hr {
   margin-bottom: 30px;
 
   img {
+    width: 100%;
     border-radius: 2px;
     padding: 4px;
     background: #fafafa;
@@ -64,4 +64,27 @@ hr {
 
 .fa-heart {
   color: #F31812;
+}
+
+.page-banner {
+  button {
+    margin-bottom: 20px;
+    background: #F31812;
+    border: 1px solid #FC4944;
+    border: none;
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 2px;
+    font-weight: 600;
+    font-size: 18px;
+    outline: none;
+
+    &:hover {
+      background: #C00904;
+    }
+
+    i {
+      margin-right: 5px;
+    }
+  }
 }

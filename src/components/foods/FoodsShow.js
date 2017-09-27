@@ -17,11 +17,17 @@ class FoodsShow extends React.Component {
 
   render() {
     return (
-      <div>
-        <BackButton history={this.props.history} />
-        <img src={this.state.food.image} />
-        <h1>{this.state.food.title}</h1>
-        <h2>{this.state.food.category}</h2>
+      <div className="row">
+        <div className="page-banner col-md-12">
+          <BackButton history={this.props.history} />
+        </div>
+        <div className="tile col-md-6">
+          <img src={this.state.food.image} className="img-responsive" />
+        </div>
+        <div className="col-md-6">
+          <h3>{this.state.food.title}</h3>
+          <h4>{this.state.food.category}</h4>
+        </div>
       </div>
     );
   }

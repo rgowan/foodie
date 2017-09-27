@@ -9,9 +9,8 @@ class BackButton extends React.Component {
     return (
       <div>
         <button
-          className="button is-info"
           onClick={this.handleClick}>
-          Back
+          <i className="fa fa-arrow-left" aria-hidden="true"></i>Back
         </button>
       </div>
     );
