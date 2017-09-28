@@ -9,7 +9,17 @@ body {
 }
 
 header {
-  height: 230px;
+  height: 200px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 h1 {
@@ -64,6 +74,27 @@ hr {
 
 .fa-heart {
   color: #F31812;
+}
+
+button {
+  margin-bottom: 20px;
+  background: #378B2E;
+  border: 1px solid #5FAE57;
+  border: none;
+  padding: 5px 10px;
+  color: #fff;
+  border-radius: 2px;
+  font-weight: 600;
+  font-size: 18px;
+  outline: none;
+
+  &:hover {
+    background: #196811;
+  }
+
+  i {
+    margin-right: 5px;
+  }
 }
 
 .page-banner {
