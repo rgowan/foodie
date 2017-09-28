@@ -23,26 +23,10 @@ class App extends React.Component {
             <i className="fa fa-cutlery" aria-hidden="true"></i>
           </header>
           <main>
-            <Route
-              exact
-              path="/"
-              component={FoodsIndex}
-            />
-            <Route
-              exact
-              path="/new"
-              component={FoodsNew}
-            />
-            <Route
-              exact
-              path="/foods/:id"
-              component={FoodsShow}
-            />
-            <Route
-              exact
-              path="/foods/:id/edit"
-              component={FoodsEdit}
-            />
+            <Route exact path="/" component={FoodsIndex} />
+            <Route exact path="/new" component={FoodsNew} />
+            <Route exact path="/foods/:id" component={FoodsShow} />
+            <Route exact path="/foods/:id/edit" component={FoodsEdit} />
           </main>
         </div>
       </Router>
