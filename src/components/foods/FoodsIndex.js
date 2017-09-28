@@ -19,7 +19,7 @@ class FoodsIndex extends React.Component {
       <div>
         <div className="row">
           <div className="page-banner col-md-12">
-            <button>
+            <button className="main-button">
               <Link to="/new">
                 <i className="fa fa-plus" aria-hidden="true"></i>Add Food
               </Link>
@@ -27,7 +27,7 @@ class FoodsIndex extends React.Component {
           </div>
           {this.state.foods.map(food => {
             return(
-              <div key={food._id} className="tile col-md-4 col-sm-6 col-xs-12">
+              <div key={food._id} className="image-tile col-md-4 col-sm-6 col-xs-12">
                 <Link to={`/foods/${food._id}`}>
                   <img src={food.image} className="img-responsive" />
                 </Link>

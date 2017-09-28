@@ -47,7 +47,7 @@ function FoodsForm({ history, handleSubmit, handleChange, food}) {
           </select>
         </div>
         <div>
-          <button>Save</button>
+          <button className="save-button">Save</button>
         </div>
       </form>
     </div>
