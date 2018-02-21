@@ -9,9 +9,6 @@ function foodsIndex(req, res, next) {
 }
 
 function foodsCreate(req, res, next) {
-
-  if(req.file) req.body.image = req.file.filename;
-
   Food
     .create(req.body)
     .then(food => res.status(201).json(food))
@@ -30,29 +27,15 @@ function foodsShow(req, res, next) {
 }
 
 function foodsUpdate(req, res, next) {
-
-  if(req.file) req.body.image = req.file.filename;
-
   Food
-    .findById(req.params.id)
-    .exec()
-    .then((food) => {
-      if(!food) return res.notFound();
-      food = Object.assign(food, req.body);
-      return food.save();
-    })
-    .then(food => res.json(food))
+    .findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then(food => res.status(200).json(food))
     .catch(next);
 }
 
 function foodsDelete(req, res, next) {
   Food
-    .findById(req.params.id)
-    .exec()
-    .then((food) => {
-      if(!food) return res.notFound();
-      return food.remove();
-    })
+    .findByIdAndRemove(req.params.id)
     .then(() => res.status(204).end())
     .catch(next);
 }

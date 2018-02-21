@@ -10,7 +10,21 @@ class FoodsEdit extends React.Component {
       image: '',
       category: ''
     }
-  };
+  }
+
+  handleChange = ({ target: { name, value } }) => {
+    const food = Object.assign({}, this.state.food, { [name]: value });
+    this.setState({ food });
+  }
+
+  handleSubmit = e => {
+    e.preventDefault();
+
+    Axios
+      .put(`/api/foods/${this.props.match.params.id}`, this.state.food)
+      .then(() => this.props.history.push(`/foods/${this.props.match.params.id}`))
+      .catch(err => console.log(err));
+  }
 
   componentDidMount() {
     Axios
@@ -19,29 +33,12 @@ class FoodsEdit extends React.Component {
       .catch(err => console.log(err));
   }
 
-  handleChange = ({target: {name, value} }) => {
-    this.setState(prevState => {
-      prevState.food[name] = value;
-      return prevState;
-    });
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-
-    Axios
-      .put(`/api/foods/${this.props.match.params.id}`, this.state.food)
-      .then(res => this.props.history.push(`/foods/${res.data._id}`))
-      .catch(err => console.log(err));
-  }
-
   render() {
-    return (
+    return(
       <FoodsForm
-        history={this.props.history}
+        food={this.state.food}
         handleSubmit={this.handleSubmit}
         handleChange={this.handleChange}
-        food={this.state.food}
       />
     );
   }

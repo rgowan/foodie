@@ -1,14 +1,15 @@
-import React from 'react';
+import React    from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
 import FoodsIndex from './components/foods/FoodsIndex';
-import FoodsShow from  './components/foods/FoodsShow';
-import FoodsNew from './components/foods/FoodsNew';
-import FoodsEdit from './components/foods/FoodsEdit';
+import FoodsNew   from './components/foods/FoodsNew';
+import FoodsShow  from './components/foods/FoodsShow';
+import FoodsEdit  from './components/foods/FoodsEdit';
 
 import 'bootstrap-css-only';
 import 'font-awesome/css/font-awesome.css';
+
 import './scss/style.scss';
 
 class App extends React.Component {
@@ -17,16 +18,18 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <header>
-            <h1>foodie</h1>
+            <h1><Link to="/">foodie</Link></h1>
             <h2>For the <span>foodie</span> in everyone...</h2>
             <hr />
-            <i className="fa fa-cutlery" aria-hidden="true"></i>
+            <i className="fa fa-cutlery"></i>
           </header>
           <main>
-            <Route exact path="/" component={FoodsIndex} />
-            <Route exact path="/new" component={FoodsNew} />
-            <Route exact path="/foods/:id" component={FoodsShow} />
-            <Route exact path="/foods/:id/edit" component={FoodsEdit} />
+            <Switch>
+              <Route path="/foods/:id/edit" component={FoodsEdit} />
+              <Route path="/foods/new" component={FoodsNew} />
+              <Route path="/foods/:id" component={FoodsShow} />
+              <Route exact path="/" component={FoodsIndex} />
+            </Switch>
           </main>
         </div>
       </Router>
@@ -34,4 +37,7 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <App />, 
+  document.getElementById('app')
+);

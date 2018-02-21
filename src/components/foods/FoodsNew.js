@@ -9,17 +9,20 @@ class FoodsNew extends React.Component {
       title: '',
       image: '',
       category: ''
-    }
-  };
-
-  handleChange = ({target: {name, value} }) => {
-    this.setState(prevState => {
-      prevState.food[name] = value;
-      return prevState;
-    });
+    } 
   }
 
-  handleSubmit = (e) => {
+  handleChange = ({ target: { name, value } }) => {
+    const food = Object.assign({}, this.state.food, { [name]: value });
+    this.setState({ food });
+  }
+
+  handleImageUpload = result => {
+    const food = Object.assign({}, this.state.food, { image: result.filesUploaded[0].url})
+    this.setState({ food });
+  }
+
+  handleSubmit = e => {
     e.preventDefault();
 
     Axios
@@ -31,10 +34,10 @@ class FoodsNew extends React.Component {
   render() {
     return (
       <FoodsForm
-        history={this.props.history}
-        handleSubmit={this.handleSubmit}
-        handleChange={this.handleChange}
-        food={this.state.food}
+        handleSubmit={ this.handleSubmit }
+        handleChange={ this.handleChange }
+        handleImageUpload={ this.handleImageUpload }
+        food={ this.state.food }
       />
     );
   }
