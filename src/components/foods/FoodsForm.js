@@ -25,7 +25,7 @@ const FoodsForm = ({ handleSubmit, handleChange, handleImageUpload, food, histor
           <label htmlFor="image">Image</label>
           <br />
           <ReactFilestack
-            apikey="AIuCIUuXNTxasxVkblVY6z"
+            apikey={FILESTACK_API_KEY}
             buttonText="Upload a photo"
             buttonClass="main-button"
             onSuccess={handleImageUpload}
