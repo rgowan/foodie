@@ -4,12 +4,9 @@ import { createStore } from 'redux';
 import { Provider }    from 'react-redux';
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 
-import reducer from './reducers/foods';
-
+import reducer    from './reducers/foods';
 import FoodsIndex from './components/foods/FoodsIndex';
 import FoodsShow  from './components/foods/FoodsShow';
-// import FoodsNew   from './components/foods/FoodsNew';
-// import FoodsEdit  from './components/foods/FoodsEdit';
 
 import 'bootstrap-css-only';
 import 'font-awesome/css/font-awesome.css';
@@ -19,7 +16,7 @@ import './scss/style.scss';
 class App extends React.Component {
   render() {
     return (
-      <Provider store={ createStore(reducer) }>
+      <Provider store={createStore(reducer)}>
         <Router>
           <div className="container">
             <header>

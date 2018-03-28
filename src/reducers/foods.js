@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 const foods = (state = [], action) => {
   switch(action.type) {
     case 'GET_FOODS':
@@ -18,4 +20,13 @@ const foods = (state = [], action) => {
   }
 };
 
-export default foods;
+const food = (state = {}, action) => {
+  switch(action.type) {
+    case 'GET_FOOD':
+      return action.food;
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({ foods, food });

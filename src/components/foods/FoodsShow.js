@@ -1,42 +1,62 @@
-import React    from 'react';
-import Axios    from 'axios';
+import React, { Component } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import BackButton from '../utility/BackButton';
 
-class FoodsShow extends React.Component {
-  state = {
-    food: {}
-  }
+const mapStateToProps = (state) => {
+  return {
+    food: state.food
+  };
+};
 
-  deleteFood = () => {
-    Axios
-      .delete(`/api/foods/${this.props.match.params.id}`)
-      .then(() => this.props.history.push('/'))
-      .catch(err => console.log(err));
-  }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchFood: (food) => dispatch({ type: 'GET_FOOD', food }),
+    deleteFood: (id) => dispatch({ type: 'DELETE_FOOD', id })
+  };
+};
 
+class FoodsShow extends Component {
   componentDidMount() {
-    Axios
-      .get(`/api/foods/${this.props.match.params.id}`)
-      .then(res => this.setState({ food: res.data }))
+    const foodId = this.props.match.params.id;
+    const { fetchFood } = this.props;
+
+    axios
+      .get(`/api/foods/${foodId}`)
+      .then(res => fetchFood(res.data))
       .catch(err => console.log(err));
+  }
+
+  deleteFood = (id) => {
+    const foodId = this.props.match.params.id;
+    const { deleteFood, history } = this.props;
+
+    axios
+      .delete(`/api/foods/${foodId}`)
+      .then(() => {
+        deleteFood(id);
+        history.push('/');
+      });
   }
 
   render() {
+    const { food } = this.props;
+
     return(
       <div className="row">
         <div className="page-banner col-md-12">
           <BackButton />
         </div>
         <div className="image-tile col-md-6">
-          <img src={this.state.food.image} className="img-responsive" />
+          <img className="img-responsive" src={food.image} />
         </div>
         <div className="col-md-6">
-          <h3>{ this.state.food.title }</h3>
-          <h4>{ this.state.food.category }</h4>
+          <h3>{ food.title }</h3>
+          <h4>{ food.category }</h4>
           <button className="standard-button">
-            <Link to={`/foods/${this.state.food.id}/edit`} >
+            <Link to={`/foods/${food.id}/edit`} >
               <i className="fa fa-pencil" aria-hidden="true"></i>Edit
             </Link>
           </button>
@@ -49,4 +69,4 @@ class FoodsShow extends React.Component {
   }
 }
 
-export default FoodsShow;
+export default connect(mapStateToProps, mapDispatchToProps)(FoodsShow);
