@@ -1,14 +1,11 @@
 import React from 'react';
 
-import BackButton     from '../utility/BackButton';
-import ReactFilestack from 'filestack-react';
+import Banner from '../utility/Banner';
 
-const FoodsForm = ({ handleSubmit, handleChange, handleImageUpload, food }) => {
+const FoodsForm = ({ handleSubmit, handleChange, food }) => {
   return (
     <div className="row">
-      <div className="page-banner col-md-12">
-        <BackButton />
-      </div>
+      <Banner />
       <form onSubmit={handleSubmit} className="col-md-6">
         <div className="form-group">
           <label htmlFor="title">Title</label>
@@ -24,11 +21,13 @@ const FoodsForm = ({ handleSubmit, handleChange, handleImageUpload, food }) => {
         <div className="form-group">
           <label htmlFor="image">Image</label>
           <br />
-          <ReactFilestack
-            apikey={FILESTACK_API_KEY}
-            buttonText="Upload a photo"
-            buttonClass="main-button"
-            onSuccess={handleImageUpload}
+          <input
+            type="text"
+            className="form-control"
+            id="image"
+            name="image"
+            value={food.image}
+            onChange={handleChange}
           />
         </div>
         <div className="form-group">
@@ -51,10 +50,6 @@ const FoodsForm = ({ handleSubmit, handleChange, handleImageUpload, food }) => {
           <button className="save-button">Save</button>
         </div>
       </form>
-      { food.image && <div className="image-tile col-md-6">
-        <h2>Image Preview</h2>
-        <img src={food.image} className="img-responsive" />
-      </div> }
     </div>
   );
 };

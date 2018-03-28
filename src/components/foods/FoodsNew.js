@@ -9,16 +9,11 @@ class FoodsNew extends React.Component {
       title: '',
       image: '',
       category: ''
-    } 
+    }
   }
 
   handleChange = ({ target: { name, value } }) => {
     const food = Object.assign({}, this.state.food, { [name]: value });
-    this.setState({ food });
-  }
-
-  handleImageUpload = result => {
-    const food = Object.assign({}, this.state.food, { image: result.filesUploaded[0].url})
     this.setState({ food });
   }
 

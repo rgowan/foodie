@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import BackButton from '../utility/BackButton';
+import Banner from '../utility/Banner';
 
 const mapStateToProps = (state) => {
   return {
@@ -46,9 +46,7 @@ class FoodsShow extends Component {
 
     return(
       <div className="row">
-        <div className="page-banner col-md-12">
-          <BackButton />
-        </div>
+        <Banner />
         <div className="image-tile col-md-6">
           <img className="img-responsive" src={food.image} />
         </div>

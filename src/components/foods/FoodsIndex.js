@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 
-import Food from '../utility/Food';
+import Banner from '../utility/Banner';
 
 const mapStateToProps = (state) => {
   return {
@@ -33,13 +33,13 @@ class FoodsIndex extends Component {
 
     return (
       <div className="row">
-        <div className="page-banner col-md-12">
-          <Link className="main-button" to="/foods/new">
-            <i className="fa fa-plus" aria-hidden="true"></i>Add Food
-          </Link>
-        </div>
-        { foods.map(food =>
-          <Food key={food.id} data={food} />
+        <Banner />
+        {foods.map(food =>
+          <div key={food.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
+            <Link to={`/foods/${food.id}`}>
+              <img src={food.image} className="img-responsive" />
+            </Link>
+          </div>
         )}
       </div>
     );
