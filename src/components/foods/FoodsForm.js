@@ -3,7 +3,7 @@ import React from 'react';
 import BackButton     from '../utility/BackButton';
 import ReactFilestack from 'filestack-react';
 
-const FoodsForm = ({ handleSubmit, handleChange, handleImageUpload, food, history }) => {
+const FoodsForm = ({ handleSubmit, handleChange, handleImageUpload, food }) => {
   return (
     <div className="row">
       <div className="page-banner col-md-12">

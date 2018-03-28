@@ -1,42 +1,51 @@
-import React from 'react';
-import Axios from 'axios';
-
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import axios from 'axios';
 
-class FoodsIndex extends React.Component {
-  state = {
-    foods: [] 
-  }
+import Food from '../utility/Food';
 
+const mapStateToProps = (state) => {
+  return {
+    foods: state
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchFoods: (foods) => dispatch({ type: 'GET_FOODS', foods}),
+    deleteFood: (id) => dispatch({ type: 'DELETE_FOOD', id })
+  };
+};
+
+class FoodsIndex extends Component {
   componentDidMount() {
-    Axios
+    const { fetchFoods } = this.props;
+
+    axios
       .get('/api/foods')
-      .then(res => this.setState({ foods: res.data }))
+      .then(res => fetchFoods(res.data))
       .catch(err => console.log(err));
   }
 
   render() {
-    return(
-      <div>
+    const { foods } = this.props;
+
+    return (
+      <Fragment>
         <div className="row">
           <div className="page-banner col-md-12">
-            <button className="main-button">
-              <Link to="/foods/new">
-                <i className="fa fa-plus" aria-hidden="true"></i>Add Food
-              </Link>
-            </button>
+            <Link className="main-button" to="/foods/new">
+              <i className="fa fa-plus" aria-hidden="true"></i>Add Food
+            </Link>
           </div>
-          { this.state.foods.map(food =>
-            <div key={food.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
-              <Link to={`/foods/${food.id}`}>
-                <img src={food.image} className="img-responsive" />
-              </Link>
-            </div>
+          { foods.map(food =>
+            <Food key={food.id} data={food} />
           )}
         </div>
-      </div>
+      </Fragment>
     );
   }
 }
 
-export default FoodsIndex;
+export default connect(mapStateToProps, mapDispatchToProps)(FoodsIndex);

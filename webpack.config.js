@@ -50,9 +50,6 @@ module.exports = {
   plugins: [
     HotModuleReplcement,
     HtmlWebpack,
-    CopyWebpack,
-    new webpack.DefinePlugin({
-      FILESTACK_API_KEY: JSON.stringify(env.parsed.FILESTACK_API_KEY)
-    })
+    CopyWebpack
   ]
 };
