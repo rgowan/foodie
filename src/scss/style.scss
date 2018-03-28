@@ -9,7 +9,11 @@ body {
 }
 
 header {
-  height: 200px;
+  height: 270px;
+
+  div {
+    margin-top: -40px;
+  }
 }
 
 a {
@@ -17,7 +21,7 @@ a {
   color: inherit;
 
   &:hover, &:focus {
-    color: inherit;
+    color: #fff;
     text-decoration: none;
     outline: none;
   }
@@ -73,47 +77,37 @@ hr {
   }
 }
 
-button {
-  margin: 0 2px 20px 2px;
-  background: none;
-  border: none;
-  padding: 5px 10px;
+.btn {
+  margin: 3px;
   color: #fff;
-  border-radius: 2px;
-  font-weight: 600;
   font-size: 18px;
-  outline: none;
+  font-weight: 600;
+  border-radius: 2px;
+  outline: none !important;
+
+  &:hover { color: #fff; }
 
   i {
     margin-right: 5px;
   }
 }
 
-.standard-button {
+.standard {
   background: #ccc;
   border: 1px solid lighten(#ccc, 10%);
-
-  &:hover {
-    background: darken(#ccc, 10%);
-  }
+  &:hover { background: darken(#ccc, 10%); }
 }
 
-.main-button {
+.main {
   background: #F31812;
   border: 1px solid lighten(#F31812, 10%);
-
-  &:hover {
-    background: darken(#F31812, 10%);
-  }
+  &:hover { background: darken(#F31812, 10%); }
 }
 
-.save-button {
+.save {
   background: #378B2E;
   border: 1px solid lighten(#378B2E, 10%);
-
-  &:hover {
-    background: darken(#378B2E, 10%);
-  }
+  &:hover { background: darken(#378B2E, 10%); }
 }
 
 i {

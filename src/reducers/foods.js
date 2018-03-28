@@ -1,29 +1,30 @@
 import { combineReducers } from 'redux';
 
-const foods = (state = [], action) => {
-  switch(action.type) {
-    case 'GET_FOODS':
-      return action.foods;
-    case 'CREATE_FOOD':
-      return [...state, { ...action.food }];
-    case 'UPDATE_FOOD':
-      return state.map(food => {
-        if(food.id !== action.id) return food;
-
-        food = {...action.food};
-        return food;
-      });
-    case 'DELETE_FOOD':
-      return state.filter(food => food.id !== action.id);
-    default:
-      return state;
-  }
+const defaultState = {
+  foods: [],
+  food: {}
 };
 
-const food = (state = {}, action) => {
+function updateFoodArray(state, action) {
+  return state.foods.map(food => {
+    if(food.id !== action.id) return food;
+    food = action.food;
+    return food;
+  });
+}
+
+const food = (state = defaultState, action) => {
   switch(action.type) {
-    case 'GET_FOOD':
-      return action.food;
+    case 'SET_FOODS':
+      return { ...state, foods: action.foods };
+    case 'SET_FOOD':
+      return { ...state, food: action.food };
+    case 'CREATE_FOOD':
+      return { ...state, foods: [...state, { ...action.food }] };
+    case 'UPDATE_FOOD':
+      return { ...state, foods: updateFoodArray(state, action) };
+    case 'DELETE_FOOD':
+      return { ...state, foods: state.foods.filter(food => food.id !== action.id) };
     default:
       return state;
   }
@@ -36,7 +37,7 @@ const formData = (state = {
 }, action) => {
   switch(action.type) {
     case 'UPDATE_FIELD_VALUE':
-      return Object.assign({}, state, { [action.name]: action.value });
+      return {...state, [action.field]: action.value };
     case 'SET_FORM_DATA':
       return action.food;
     default:
@@ -44,4 +45,4 @@ const formData = (state = {
   }
 };
 
-export default combineReducers({ foods, food, formData });
+export default combineReducers({ food, formData });

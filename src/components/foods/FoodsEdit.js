@@ -1,47 +1,79 @@
-import React from 'react';
-import Axios from 'axios';
+import React, { Component } from 'react';
+import axios from 'axios';
+import { connect } from 'react-redux';
 
 import FoodsForm from './FoodsForm';
 
-class FoodsEdit extends React.Component {
-  state = {
-    food: {
-      title: '',
-      image: '',
-      category: ''
-    }
-  }
+const mapStateToProps = (
+  state
+) => {
+  return {
+    formData: state.formData
+  };
+};
 
-  handleChange = ({ target: { name, value } }) => {
-    const food = Object.assign({}, this.state.food, { [name]: value });
-    this.setState({ food });
-  }
+const mapDispatchToProps = (
+  dispatch
+) => {
+  return {
+    setFormData: (food) => dispatch({
+      type: 'SET_FORM_DATA',
+      food
+    }),
+    updateFieldValue: (field, value) => dispatch({
+      type: 'UPDATE_FIELD_VALUE',
+      field,
+      value
+    }),
+    updateFood: (formData) => dispatch({
+      type: 'UPDATE_FOOD',
+      food: formData
+    })
+  };
+};
 
-  handleSubmit = e => {
-    e.preventDefault();
+class FoodsEdit extends Component {
+  componentDidMount() {
+    const foodId  = this.props.match.params.id;
+    const { setFormData } = this.props;
 
-    Axios
-      .put(`/api/foods/${this.props.match.params.id}`, this.state.food)
-      .then(() => this.props.history.push(`/foods/${this.props.match.params.id}`))
+    axios
+      .get(`/api/foods/${foodId}`)
+      .then(res => setFormData(res.data))
       .catch(err => console.log(err));
   }
 
-  componentDidMount() {
-    Axios
-      .get(`/api/foods/${this.props.match.params.id}`)
-      .then(res => this.setState({ food: res.data }))
+  handleChange = ({ target: { name, value }}) => {
+    const { updateFieldValue } = this.props;
+    updateFieldValue(name, value);
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    const foodId  = this.props.match.params.id;
+    const { updateFood, formData, history } = this.props;
+
+    axios
+      .put(`/api/foods/${foodId}`, formData)
+      .then(res => {
+        updateFood(res.data);
+        history.push(`/foods/${foodId}`);
+      })
       .catch(err => console.log(err));
   }
 
   render() {
-    return(
+    const { formData } = this.props;
+
+    return (
       <FoodsForm
-        food={this.state.food}
-        handleSubmit={this.handleSubmit}
+        food={formData}
         handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
       />
     );
   }
 }
 
-export default FoodsEdit;
+export default connect(mapStateToProps, mapDispatchToProps)(FoodsEdit);

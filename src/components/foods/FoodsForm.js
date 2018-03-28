@@ -1,11 +1,8 @@
 import React from 'react';
 
-import Banner from '../utility/Banner';
-
 const FoodsForm = ({ handleSubmit, handleChange, food }) => {
   return (
     <div className="row">
-      <Banner />
       <form onSubmit={handleSubmit} className="col-md-6">
         <div className="form-group">
           <label htmlFor="title">Title</label>
@@ -47,7 +44,7 @@ const FoodsForm = ({ handleSubmit, handleChange, food }) => {
           </select>
         </div>
         <div>
-          <button className="save-button">Save</button>
+          <button className="btn save">Save</button>
         </div>
       </form>
     </div>

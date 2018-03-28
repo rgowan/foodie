@@ -6,9 +6,7 @@ import FoodsNew from '../foods/FoodsNew';
 import FoodsShow from '../foods/FoodsShow';
 import FoodsEdit from '../foods/FoodsEdit';
 
-const Routes = (
-
-) => (
+const Routes = () => (
   <Switch>
     <Route path="/foods/:id/edit" component={FoodsEdit} />
     <Route path="/foods/new" component={FoodsNew} />

@@ -4,20 +4,23 @@ import { connect } from 'react-redux';
 
 import FoodsForm from './FoodsForm';
 
-const mapStateToProps = (
-  state
-) => {
+const mapStateToProps = (state) => {
   return {
     formData: state.formData
   };
 };
 
-const mapDispatchToProps = (
-  dispatch
-) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    updateFieldValue: (name, value) => dispatch({ type: 'UPDATE_FIELD_VALUE', name, value }),
-    createFood: (formData) => dispatch({ type: 'CREATE_FOOD', food: formData })
+    updateFieldValue: (field, value) => dispatch({
+      type: 'UPDATE_FIELD_VALUE',
+      field,
+      value
+    }),
+    createFood: (formData) => dispatch({
+      type: 'CREATE_FOOD',
+      food: formData
+    })
   };
 };
 
