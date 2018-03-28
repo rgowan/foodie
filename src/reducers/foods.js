@@ -29,4 +29,19 @@ const food = (state = {}, action) => {
   }
 };
 
-export default combineReducers({ foods, food });
+const formData = (state = {
+  title: '',
+  image: '',
+  category: ''
+}, action) => {
+  switch(action.type) {
+    case 'UPDATE_FIELD_VALUE':
+      return Object.assign({}, state, { [action.name]: action.value });
+    case 'SET_FORM_DATA':
+      return action.food;
+    default:
+      return state;
+  }
+};
+
+export default combineReducers({ foods, food, formData });

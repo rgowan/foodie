@@ -1,41 +1,57 @@
-import React from 'react';
-import Axios from 'axios';
+import React, { Component } from 'react';
+import axios from 'axios';
+import { connect } from 'react-redux';
 
 import FoodsForm from './FoodsForm';
 
-class FoodsNew extends React.Component {
-  state = {
-    food: {
-      title: '',
-      image: '',
-      category: ''
-    }
+const mapStateToProps = (
+  state
+) => {
+  return {
+    formData: state.formData
+  };
+};
+
+const mapDispatchToProps = (
+  dispatch
+) => {
+  return {
+    updateFieldValue: (name, value) => dispatch({ type: 'UPDATE_FIELD_VALUE', name, value }),
+    createFood: (formData) => dispatch({ type: 'CREATE_FOOD', food: formData })
+  };
+};
+
+class FoodsNew extends Component {
+  handleChange = ({ target: { name, value }}) => {
+    const { updateFieldValue } = this.props;
+    updateFieldValue(name, value);
   }
 
-  handleChange = ({ target: { name, value } }) => {
-    const food = Object.assign({}, this.state.food, { [name]: value });
-    this.setState({ food });
-  }
-
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
-    Axios
-      .post('/api/foods', this.state.food)
-      .then(() => this.props.history.push('/'))
+    const { createFood, formData, history } = this.props;
+
+    axios
+      .post('/api/foods', formData)
+      .then(res => {
+        createFood(res.data);
+        history.push('/');
+      })
       .catch(err => console.log(err));
   }
 
   render() {
+    const { formData } = this.props;
+
     return (
       <FoodsForm
-        handleSubmit={ this.handleSubmit }
-        handleChange={ this.handleChange }
-        handleImageUpload={ this.handleImageUpload }
-        food={ this.state.food }
+        food={formData}
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
       />
     );
   }
 }
 
-export default FoodsNew;
+export default connect(mapStateToProps, mapDispatchToProps)(FoodsNew);
