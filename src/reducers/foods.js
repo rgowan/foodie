@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux';
-
 const defaultState = {
   foods: [],
   food: {}
@@ -30,19 +28,4 @@ const food = (state = defaultState, action) => {
   }
 };
 
-const formData = (state = {
-  title: '',
-  image: '',
-  category: ''
-}, action) => {
-  switch(action.type) {
-    case 'UPDATE_FIELD_VALUE':
-      return {...state, [action.field]: action.value };
-    case 'SET_FORM_DATA':
-      return action.food;
-    default:
-      return state;
-  }
-};
-
-export default combineReducers({ food, formData });
+export default food;
