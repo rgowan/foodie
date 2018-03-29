@@ -20,6 +20,9 @@ const mapDispatchToProps = (
       type: 'SET_FORM_DATA',
       food
     }),
+    resetFormData: () => dispatch({
+      type: 'RESET_FORM_DATA'
+    }),
     updateFieldValue: (field, value) => dispatch({
       type: 'UPDATE_FIELD_VALUE',
       field,
@@ -46,6 +49,11 @@ class FoodsEdit extends Component {
   handleChange = ({ target: { name, value }}) => {
     const { updateFieldValue } = this.props;
     updateFieldValue(name, value);
+  }
+
+  componentWillUnmount() {
+    const { resetFormData } = this.props;
+    resetFormData();
   }
 
   handleSubmit = (e) => {

@@ -6,7 +6,7 @@ import FoodsForm from './FoodsForm';
 
 const mapStateToProps = (state) => {
   return {
-    formData: state.formData
+    formData: state.form
   };
 };
 
@@ -17,6 +17,9 @@ const mapDispatchToProps = (dispatch) => {
       field,
       value
     }),
+    resetFormData: () => dispatch({
+      type: 'RESET_FORM_DATA'
+    }),
     createFood: (formData) => dispatch({
       type: 'CREATE_FOOD',
       food: formData
@@ -25,6 +28,12 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 class FoodsNew extends Component {
+  componentWillUnmount() {
+    const { resetFormData } = this.props;
+    resetFormData();
+  }
+
+
   handleChange = ({ target: { name, value }}) => {
     const { updateFieldValue } = this.props;
     updateFieldValue(name, value);
