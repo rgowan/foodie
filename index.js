@@ -4,7 +4,6 @@ const app             = express();
 const mongoose        = require('mongoose');
 mongoose.Promise      = require('bluebird');
 mongoose.plugin(require('./lib/globalToJSON'));
-mongoose.plugin(require('mongoose-unique-validator'));
 
 const morgan          = require('morgan');
 const bodyParser      = require('body-parser');

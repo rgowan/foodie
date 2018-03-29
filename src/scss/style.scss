@@ -27,6 +27,10 @@ a {
   }
 }
 
+i {
+  margin-right: 5px;
+}
+
 h1 {
   margin: 20px 0 0 0;
   padding: 0;
@@ -108,10 +112,6 @@ hr {
   background: #378B2E;
   border: 1px solid lighten(#378B2E, 10%);
   &:hover { background: darken(#378B2E, 10%); }
-}
-
-i {
-  margin-right: 5px;
 }
 
 @media screen and (max-width: 750px) {
