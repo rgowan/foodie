@@ -11,7 +11,7 @@ import './scss/style.scss';
 import food from './reducers/foods.js';
 import form from './reducers/form.js';
 import filter from './reducers/filter.js';
-const store = combineReducers({ food, form, filter })
+const store = combineReducers({ food, form, filter });
 
 import Header from './components/utility/Header';
 import Routes from './components/utility/Routes';
@@ -33,5 +33,5 @@ class App extends React.Component {
 
 ReactDOM.render(
   <App />,
-  document.getElementById('app')
+  document.getElementById('root')
 );

@@ -8,11 +8,9 @@ const AddFoodLink = () => (
 );
 
 const BackButton = ({ history }) => (
-  <div>
-    <button onClick={ history.goBack } className="btn main">
-      <i className="fa fa-arrow-left"></i>Back
-    </button>
-  </div>
+  <button onClick={ history.goBack } className="btn main">
+    <i className="fa fa-arrow-left"></i>Back
+  </button>
 );
 
 const Header = ({ history }) => (
