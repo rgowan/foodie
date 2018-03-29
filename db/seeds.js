@@ -1,8 +1,8 @@
-const mongoose   = require('mongoose');
+const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 const { dbURI } = require('../config/environment');
-const Food      = require('../models/food');
+const Food = require('../models/food');
 
 const foodData = [{
   title: 'Doughnuts',

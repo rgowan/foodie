@@ -1,16 +1,16 @@
-const express         = require('express');
-const app             = express();
+const express = require('express');
+const app = express();
 
-const mongoose        = require('mongoose');
-mongoose.Promise      = require('bluebird');
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 mongoose.plugin(require('./lib/globalToJSON'));
 
-const morgan          = require('morgan');
-const bodyParser      = require('body-parser');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
 const { port, dbURI } = require('./config/environment');
-const routes          = require('./config/routes');
+const routes = require('./config/routes');
 const customResponses = require('./lib/customResponses');
-const errorHandler    = require('./lib/errorHandler');
+const errorHandler = require('./lib/errorHandler');
 
 mongoose.connect(dbURI, { useMongoClient: true });
 

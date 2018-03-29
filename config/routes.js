@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const foods  = require('../controllers/foods');
+const foods = require('../controllers/foods');
 
 router.route('/foods')
   .get(foods.index)
