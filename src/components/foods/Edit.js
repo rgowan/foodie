@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 
-import FoodsForm from './FoodsForm';
+import Form from './Form';
 
 const mapStateToProps = (
   state
@@ -35,7 +35,7 @@ const mapDispatchToProps = (
   };
 };
 
-class FoodsEdit extends Component {
+class Edit extends Component {
   componentDidMount() {
     const foodId  = this.props.match.params.id;
     const { setFormData } = this.props;
@@ -75,7 +75,7 @@ class FoodsEdit extends Component {
     const { formData } = this.props;
 
     return (
-      <FoodsForm
+      <Form
         food={formData}
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
@@ -84,4 +84,4 @@ class FoodsEdit extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FoodsEdit);
+export default connect(mapStateToProps, mapDispatchToProps)(Edit);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FoodsForm = ({ handleSubmit, handleChange, food }) => {
+const Form = ({ handleSubmit, handleChange, food }) => {
   return (
     <div className="row">
       <form onSubmit={handleSubmit} className="col-md-6">
@@ -51,4 +51,4 @@ const FoodsForm = ({ handleSubmit, handleChange, food }) => {
   );
 };
 
-export default FoodsForm;
+export default Form;

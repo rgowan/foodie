@@ -22,7 +22,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-class FoodsShow extends Component {
+class Show extends Component {
   componentDidMount() {
     const foodId = this.props.match.params.id;
     const { setFood } = this.props;
@@ -68,4 +68,4 @@ class FoodsShow extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FoodsShow);
+export default connect(mapStateToProps, mapDispatchToProps)(Show);

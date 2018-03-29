@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import FoodsIndex from '../foods/FoodsIndex';
-import FoodsNew from '../foods/FoodsNew';
-import FoodsShow from '../foods/FoodsShow';
-import FoodsEdit from '../foods/FoodsEdit';
+import FoodsIndex from '../foods/Index';
+import FoodsNew from '../foods/New';
+import FoodsShow from '../foods/Show';
+import FoodsEdit from '../foods/Edit';
 
 const Routes = () => (
   <Switch>

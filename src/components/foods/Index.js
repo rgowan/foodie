@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-class FoodsIndex extends Component {
+class Index extends Component {
   componentDidMount() {
     const { setFoods } = this.props;
 
@@ -45,4 +45,4 @@ class FoodsIndex extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(FoodsIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(Index);
