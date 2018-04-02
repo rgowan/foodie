@@ -9,7 +9,7 @@ body {
 }
 
 header {
-  height: 270px;
+  height: 250px;
 
   div {
     margin-top: -40px;
@@ -96,6 +96,26 @@ hr {
   }
 }
 
+.filters {
+  margin: 20px 0;
+  text-align: right;
+
+  a {
+    color: #333;
+    font-size: 18px;
+    font-weight: 400;
+    margin: 5px;
+
+    &.active {
+      color: #fff;
+      background: #ccc;
+      padding: 8px;
+      font-weight: 600;
+      border-radius: 2px;
+    }
+  }
+}
+
 .standard {
   background: #ccc;
   border: 1px solid lighten(#ccc, 10%);
@@ -117,5 +137,15 @@ hr {
 @media screen and (max-width: 750px) {
   .fa-cutlery {
     display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 120px;
+  }
+
+  header div {
+    margin: 0;
   }
 }

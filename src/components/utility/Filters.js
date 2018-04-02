@@ -1,14 +1,45 @@
 import React from 'react';
 
-const Filters = () => (
-  <p>
-    <a href="#">All</a>
+const Filters = ({ handleFilterChange, activeFilter }) => (
+  <p className="filters">
+    <a 
+      className={ activeFilter === 'SHOW_ALL' ? 'active': ''} href="#" 
+      onClick={() => handleFilterChange('SHOW_ALL')}
+    >
+      All
+    </a>
     {' '}
-    <a href="#">Breakfast</a>
+    <a 
+      className={ activeFilter === 'SHOW_BREAKFAST' ? 'active': ''} 
+      href="#" 
+      onClick={() => handleFilterChange('SHOW_BREAKFAST')}
+    >
+      Breakfast
+    </a>
     {' '}
-    <a href="#">Lunch</a>
+    <a 
+      className={ activeFilter === 'SHOW_LUNCH' ? 'active': ''}
+      href="#" 
+      onClick={() => handleFilterChange('SHOW_LUNCH')}
+    >
+      Lunch
+    </a>
     {' '}
-    <a href="#">Dinner</a>
+    <a 
+      className={ activeFilter === 'SHOW_DINNER' ? 'active': ''}
+      href="#" 
+      onClick={() => handleFilterChange('SHOW_DINNER')}
+    >
+      Dinner
+    </a>
+    {' '}
+    <a 
+      className={ activeFilter === 'SHOW_DESERT' ? 'active': ''}
+      href="#" 
+      onClick={() => handleFilterChange('SHOW_DESERT')}
+    >
+      Desert
+    </a>
   </p>
 );
 
