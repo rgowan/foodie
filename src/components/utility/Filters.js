@@ -3,7 +3,7 @@ import React from 'react';
 const Filters = ({ handleFilterChange, activeFilter }) => (
   <p className="filters">
     <a 
-      className={ activeFilter === 'SHOW_ALL' ? 'active': ''} href="#" 
+      className={ activeFilter === 'SHOW_ALL' ? 'active': ''} 
       onClick={() => handleFilterChange('SHOW_ALL')}
     >
       All
@@ -11,7 +11,6 @@ const Filters = ({ handleFilterChange, activeFilter }) => (
     {' '}
     <a 
       className={ activeFilter === 'SHOW_BREAKFAST' ? 'active': ''} 
-      href="#" 
       onClick={() => handleFilterChange('SHOW_BREAKFAST')}
     >
       Breakfast
@@ -19,7 +18,6 @@ const Filters = ({ handleFilterChange, activeFilter }) => (
     {' '}
     <a 
       className={ activeFilter === 'SHOW_LUNCH' ? 'active': ''}
-      href="#" 
       onClick={() => handleFilterChange('SHOW_LUNCH')}
     >
       Lunch
@@ -27,7 +25,6 @@ const Filters = ({ handleFilterChange, activeFilter }) => (
     {' '}
     <a 
       className={ activeFilter === 'SHOW_DINNER' ? 'active': ''}
-      href="#" 
       onClick={() => handleFilterChange('SHOW_DINNER')}
     >
       Dinner
@@ -35,7 +32,6 @@ const Filters = ({ handleFilterChange, activeFilter }) => (
     {' '}
     <a 
       className={ activeFilter === 'SHOW_DESERT' ? 'active': ''}
-      href="#" 
       onClick={() => handleFilterChange('SHOW_DESERT')}
     >
       Desert

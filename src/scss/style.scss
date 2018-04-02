@@ -53,7 +53,7 @@ h2 {
 
 hr {
   border: 0;
-  height: 2px;
+  height: 3px;
   background: #333;
   background-image: linear-gradient(to right, #fafafa, #eee, #fafafa);
 }
@@ -105,7 +105,9 @@ hr {
     font-size: 18px;
     font-weight: 400;
     margin: 5px;
+    cursor: pointer;
 
+  
     &.active {
       color: #fff;
       background: #ccc;
@@ -138,14 +140,14 @@ hr {
   .fa-cutlery {
     display: none;
   }
+
+  header div {
+    margin: 0;
+  }
 }
 
 @media screen and (max-width: 400px) {
   h1 {
     font-size: 120px;
-  }
-
-  header div {
-    margin: 0;
   }
 }
