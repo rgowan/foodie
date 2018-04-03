@@ -9,7 +9,7 @@ Foodie is basic `CRUD` `MEAN` stack app which allows users to upload pictures of
 
 ### Overview
 
-I built this app to get more familiar with the initial concepts of `React` and also how to consume an API using `axios`. This app was later added to the cirriculum on the Web Development Immersive course at General Assembly as it's a perfect app to build to learn the basic conepts of `MERN` stack application.
+I built this app to get more familiar with the initial concepts of `React` and also how to consume an API using `axios`. This app was later added to the cirriculum on the Web Development Immersive course at General Assembly as it's a perfect app to learn the basic conepts and practices of a `MERN` stack application.
 
 Since then, I have used the app as a platform to learn `Redux`. The app now uses this to handle the data in a singular global state on the front end, this is a much easier way of managing data.
 
