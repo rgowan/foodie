@@ -1,4 +1,3 @@
-# foodie
-A MERN stack application
+<img width="1197" alt="screen shot 2018-04-03 at 11 22 12" src="https://user-images.githubusercontent.com/11501555/38244186-c11e07b2-3731-11e8-9043-2300eda676c7.png">
 
-<img width="1403" alt="screen shot 2018-02-21 at 10 22 47" src="https://user-images.githubusercontent.com/11501555/36475059-7393fcdc-16f1-11e8-8041-568f62231d76.png">
+# Foodie
