@@ -4,6 +4,9 @@
   "description": "A basic CRUD MERN stack app using Redux",
   "main": "index.js",
   "license": "MIT",
+  "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js"
+  },
   "scripts": {
     "start": "yarn build && node index",
     "start:client": "webpack-dev-server",
@@ -36,6 +39,8 @@
     "babel-preset-react": "^6.24.1",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.29.0",
     "jest": "^22.4.3",
