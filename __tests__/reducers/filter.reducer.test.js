@@ -18,7 +18,7 @@ describe('Filter Reducer Tests', () => {
       ).toEqual(
         'SHOW_BREAKFAST'
       )
-    })
+    });
   });
 
 });
