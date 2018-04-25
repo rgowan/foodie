@@ -8,7 +8,7 @@
     "start": "yarn build && node index",
     "start:client": "webpack-dev-server",
     "start:server": "nodemon",
-    "test": "jest --coverage --watch",
+    "test": "jest --watchAll --coverage",
     "build": "webpack -p",
     "seed": "node db/seeds"
   },
