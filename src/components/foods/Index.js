@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-class Index extends Component {
+export class Index extends Component {
   componentDidMount() {
     const { setFoods } = this.props;
 
