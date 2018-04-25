@@ -33,7 +33,6 @@ class New extends Component {
     resetFormData();
   }
 
-
   handleChange = ({ target: { name, value }}) => {
     const { updateFieldValue } = this.props;
     updateFieldValue(name, value);
